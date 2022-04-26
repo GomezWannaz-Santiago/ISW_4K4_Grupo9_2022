@@ -1,0 +1,10 @@
+
+<div class="container text-center">    
+    <h1 class="pt-5"> Tu pedido fue {{titulo}}</h1>
+    <p *ngIf="this.bandera">Gracias por contar con nosotros.</p>
+    <p *ngIf="!this.bandera">Lo sentimos! Esperamos que nos elijas en otra ocasión. </p>
+
+    
+    <button class="col-sm-6 btn btn-lg btn-danger" (click)="backToHomePage()" >Volver a pedir</button>
+    
+</div>

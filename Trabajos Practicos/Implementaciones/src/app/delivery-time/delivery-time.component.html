@@ -1,0 +1,40 @@
+<div class="progress">
+    <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+
+<div class="container">
+    <form [formGroup]="this.formTiempoEntrega">
+        <div class="form-check">
+            <h3 class="subtitle">¿Cuándo queres recibir el pedido?:</h3>
+
+            <input type="radio" formControlName="fechaRadio" name="fechaRadio" value="0" id="fechaAntesPosible" class="form-check-input" >            
+            <label for="fechaAntesPosible" class="form-check-label pointer">Lo antes posible.</label>                      
+        </div>
+
+        <div class="form-check">
+            <input type="radio" formControlName="fechaRadio" value="1" name="fechaRadio" id="fechaAElegir" class="form-check-input">
+            <label for="fechaAElegir" class="pointer form-check-label">Quiero elegir la fecha y hora.</label>
+
+        </div>
+
+        <div *ngIf="this.formTiempoEntrega.controls['fechaRadio'].value == 1">
+            <label for="fecha" class="form-label"> Seleccioná la fecha</label>
+            <input id="fecha" type="date" formControlName="fecha" data-date-format="dd/mm/yyyy" class="form-control">
+
+
+            <label for="hora" class="form-label">Seleccioná la hora:</label> 
+            <input id="hora" type="time" formControlName="hora" data-time-format="hh:mm" class="form-control">
+            
+            <p *ngIf="errorFecha" class="text-danger">Ups! Recordá que la fecha del pedido tiene que ser menor a dentro de una semana</p>
+        </div>
+
+        <div class="my-5">
+            <p *ngIf="errorOpcion" class="text-danger">Seleccioná una opción para continuar</p>
+            
+            <button class="col-sm-6 btn btn-lg btn-danger"   (click)="previousStep()" >Volver</button>
+            <button class="col-sm-6 btn btn-lg btn-success"  (click)="updateForm()">Siguiente</button>
+        </div>
+
+
+    </form>
+</div>

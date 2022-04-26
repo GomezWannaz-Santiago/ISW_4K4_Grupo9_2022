@@ -1,0 +1,10 @@
+body {
+    background-color: #d57e523d;
+    font-family: "Roboto", sans-serif;    
+    height: 100vh;    
+}
+
+.subtitle {
+    font-weight: bold;
+    padding: 1%;
+}

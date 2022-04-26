@@ -1,0 +1,27 @@
+<div class="container text-center">
+    <div class="col-sm-12">
+        <h3 class="title ">DETALLE DEL PEDIDO</h3>
+        <p class="subtitle"> Tu pedido: </p>
+    </div>
+    <p> {{this.descripcion}}</p>    
+    
+    <div *ngIf="imagen">
+        <p>Nombre de la imagen subida : {{imagen}}</p>        
+    </div>
+    <p class="subtitle"> Lo pediste para: </p>
+    <p>{{tiempoRecepcion}}</p>
+    
+    <p class="subtitle">Te lo entregamos en: </p>
+    <p> {{domicilioEntrega}}</p>
+
+    <p class="subtitle">Lo buscamos en : </p>
+    <p> {{domicilioBusqueda}}</p>
+
+    <p class="subtitle"> Vas a pagar con:  </p>
+    <p>{{formaPago}}</p>
+
+    <p class="subtitle center">¿Querés confirmar el pedido?</p>
+    
+    <button class="col-sm-6 btn btn-lg btn-danger" (click)="cancel()"> Cancelar </button>
+    <button class="col-sm-6 btn btn-lg btn-success"(click)="confirm()"> Confirmar </button>
+</div>

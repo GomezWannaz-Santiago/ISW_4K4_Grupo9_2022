@@ -1,0 +1,35 @@
+<div class="container">
+    <form [formGroup]="this.locationForm" (change)="emitForm()">
+        <button type="button" class="btn" style="background-color: rgb(226,92,92); color:white" (click)="activateMap()">{{modoEleccion}}</button>
+
+        <div *ngIf="!verMapa">
+            <label for="calle" class="form-label">Escribí la calle:</label> 
+            <input type="text" formControlName="calle" class="address form-control" id="calle" maxlength="255">
+            <p class="text-danger" *ngIf="errorCalle.value && !verMapa">Completá la calle</p>
+
+
+            <label for="numeroCalle" class="form-label">Escribí el número</label>
+            <input type="text" formControlName="numeroCalle" class="number form-control" id="num" maxlength="4" >        
+            <p class="text-danger" *ngIf="errorNumero.value && !verMapa">Completá el numero de la calle</p>
+
+            <label for="ciudad" class="form-label">Ciudad:</label>
+            <select id="city" formControlName="ciudad" [(ngModel)]="opcionSelecc" class="form-select">
+                    <option value="0">Córdoba</option>
+                    <option value="1">Villa Carlos Paz</option>
+                    <option value="2">Villa Allende</option>                    
+            </select>
+            <p class="text-danger" *ngIf="errorCiudad.value && !verMapa">Completá la ciudad</p>
+
+            <label for="referencia" class="form-label">Referencia: </label>
+            <textarea formControlName="referencia" class="ref form-control" id="referencia" rows="5" cols="20" maxlength="255"></textarea>
+
+        </div>
+
+        <div *ngIf="verMapa">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.567538473792!2d-64.18525048424817!3d-31.426039103864717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9432a291d70b1a33%3A0xbcda07dd628e0fdb!2sObispo%20Oro%20344%2C%20X5000BFH%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1650498744395!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            
+        </div>
+
+        
+
+    </form>
+</div>

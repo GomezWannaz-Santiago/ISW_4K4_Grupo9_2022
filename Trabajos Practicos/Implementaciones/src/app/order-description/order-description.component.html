@@ -1,0 +1,27 @@
+<div class="container">
+  <form [formGroup]="this.orderDescForm">
+    <p class="subtitle">¿Qué necesitas pedir?:</p>
+    <div>      
+      <textarea class="form-control desc" formControlName="descripcion" id="desc" rows="5" cols="80" maxlength="255" style="resize:none"></textarea>
+      <p class="text-end fst-italic">Máximo 50 caracteres</p>
+      
+      <p *ngIf="errorDesc" class="text-danger"> Ups! La descripción debe tener entre 1 y 50 caracteres.</p>
+      
+    </div>
+    
+    <div>          
+      <p class="subtitle">Podés mostrarnos lo que queres pedir... (opcional):</p>
+      <input class="btn btn-imagen form-control" name="miImagen" formControlName="imagen" type="file" id="imagen" accept="image/jpg" (change)="verifyImageType($event)">
+      
+      <p *ngIf="errorImagen" class="text-danger"> Ups! La imagen debe ser de formato JPG y menor que 5MB</p>
+    </div>
+    
+    <div class="my-5">
+      <button class="col-sm-12 btn btn-lg btn-success" (click)="updateForm()">Siguiente</button>
+    </div>
+
+
+  </form>
+  
+</div>
+<!-- Debería haber una vista previa de la imagen-->
